@@ -124,8 +124,11 @@ tt=seq(1,length=WkExp,by=7)
 fit=lm(lnI~tt) # LINEAR REGRESSION
 slope=fit$coeff[2] ## extract the slope for the linear regression
 
+slope <- coef(fit)[2]  # Extract the slope properly
+print(slope)  # Display the value of the slope
+
 par(mfrow=c(1,1),cex=1.5)
-plot(tt,lnI,xlab='Time')
+plot(tt,lnI,xlab='Time', ylab='Ln(I)', main='Natural Log of I Across Time')
 lines(tt,fit$coeff[1]+fit$coeff[2]*tt,col='red',lwd=2)
 
 ## NOW TRY HOW LONG THE EXPONENTIAL PERIOD CAN LAST BY CHANING WkExp by yourself
